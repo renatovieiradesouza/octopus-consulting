@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octopus - Consultoria em Engenharia de Software, Cloud e DevOps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Urbanist:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #2C3E63;
+            --navy-light: #3d5175;
+            --sky-blue: #4A90E2;
+            --light-blue: #E8F4FF;
+            --ultra-light: #F8FBFF;
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #6B7280;
+            --gray-700: #4B5563;
+            --accent: #10B981;
+            --accent-light: #D1FAE5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--gray-700);
+            background: var(--ultra-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-200);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .logo-main {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--sky-blue);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sky-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--navy);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--navy);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(44, 62, 99, 0.15);
+        }
+
+        .cta-button:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 62, 99, 0.25);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 120px;
+            background: linear-gradient(135deg, var(--ultra-light) 0%, var(--light-blue) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, 30px) scale(1.05); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--sky-blue);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: var(--navy);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(44, 62, 99, 0.2);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--navy-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(44, 62, 99, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--navy);
+            padding: 16px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gray-200);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--navy);
+            background: var(--gray-50);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--light-blue);
+            color: var(--sky-blue);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 44px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--gray-50);
+            padding: 40px;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--sky-blue);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            background: white;
+            border-color: var(--gray-200);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--sky-blue);
+            transform: scale(1.1);
+        }
+
+        .service-title {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .service-description {
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* Diferencial Section */
+        .diferencial {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--ultra-light) 0%, white 100%);
+        }
+
+        .diferencial-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .diferencial-text h2 {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .diferencial-text p {
+            font-size: 18px;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-light);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .feature-text {
+            font-size: 16px;
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        /* Results Section */
+        .results {
+            padding: 100px 0;
+            background: var(--navy);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .results::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .results .section-tag {
+            background: rgba(74, 144, 226, 0.2);
+            color: var(--light-blue);
+        }
+
+        .results .section-title {
+            color: white;
+        }
+
+        .results .section-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .result-value {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .result-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--ultra-light) 100%);
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .cta-content p {
+            font-size: 20px;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-bottom: 20px;
+        }
+
+        .footer-description {
+            color: var(--gray-600);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .footer-column h4 {
+            font-family: 'Urbanist', sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--navy);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid var(--gray-200);
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diferencial-content {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-main">OCTOPUS</div>
+                <div class="logo-sub">SRE & DevOps</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#diferencial">Diferencial</a></li>
+                <li><a href="#resultados">Resultados</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="#contato" class="cta-button">Fale Conosco</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Modernizando <span class="highlight">infraestrutura</span>. Acelerando negócios.</h1>
+                    <p>Consultoria especializada em Cloud, DevOps, SRE e Engenharia de Plataforma. Performance técnica conectada a resultado real.</p>
+                    <div class="hero-buttons">
+                        <a href="#contato" class="btn-primary">Agende uma Conversa</a>
+                        <a href="#servicos" class="btn-secondary">Nossos Serviços</a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">20-60%</div>
+                        <div class="stat-label">Redução de custos cloud</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">R$ 300k+</div>
+                        <div class="stat-label">Economia gerada</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Remoto</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">O Que Fazemos</span>
+                <h2 class="section-title">Serviços Especializados</h2>
+                <p class="section-description">Soluções completas em engenharia de software, cloud e DevOps para transformar sua infraestrutura tecnológica.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">☁️</div>
+                    <h3 class="service-title">Cloud & Infraestrutura</h3>
+                    <p class="service-description">Arquitetura cloud nativa, migração para nuvem, multi-cloud strategy, IaC com Terraform e otimização de custos (FinOps).</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🚀</div>
+                    <h3 class="service-title">DevOps & CI/CD</h3>
+                    <p class="service-description">Pipelines automatizadas, GitOps com ArgoCD/Flux, estratégias de deploy avançadas e versionamento inteligente.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚙️</div>
+                    <h3 class="service-title">Kubernetes & Plataforma</h3>
+                    <p class="service-description">Implementação de clusters EKS/GKE/AKS, hardening, autoscaling inteligente e engenharia de plataforma interna (IDP).</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">Observabilidade & SRE</h3>
+                    <p class="service-description">Prometheus, Grafana, Loki, OpenTelemetry, definição de SLO/SLA, métricas DORA e engenharia de confiabilidade.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔒</div>
+                    <h3 class="service-title">Segurança & DevSecOps</h3>
+                    <p class="service-description">Shift-left security, scan de código e containers, compliance automatizado, hardening de ambientes e IAM least privilege.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">✨</div>
+                    <h3 class="service-title">Qualidade & Engenharia</h3>
+                    <p class="service-description">SonarQube, quality gates, estratégia de testes automatizados, redução de dívida técnica e revisão arquitetural.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferencial" class="diferencial">
+        <div class="container">
+            <div class="diferencial-content">
+                <div class="diferencial-text">
+                    <span class="section-tag">Por Que Octopus</span>
+                    <h2>Consultoria Enxuta.<br>Resultado Rápido.<br>Impacto Real.</h2>
+                    <p>Somos especialistas seniores independentes focados em entregas de alto impacto. Nossa missão é resolver problemas, estruturar ambientes e deixar seu time mais eficiente.</p>
+                    <ul class="features-list">
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span class="feature-text">Engenharia com visão de negócio</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span class="feature-text">Foco em manutenabilidade e redução de custos contínua</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span class="feature-text">Automação como padrão, segurança desde o início</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span class="feature-text">Experiência em grandes players: Globo, Porto Seguro, Memed</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span class="feature-text">Métricas DORA e técnicas conectadas a resultado financeiro</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span class="feature-text">Time de 5 especialistas seniores altamente capacitados</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="diferencial-image">
+                    <div class="stat-card" style="margin-bottom: 20px;">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Especialistas Seniores</div>
+                    </div>
+                    <div class="stat-card" style="margin-bottom: 20px;">
+                        <div class="stat-number">2025</div>
+                        <div class="stat-label">Fundada</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Foco em Resultado</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resultados" class="results">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Impacto Mensurável</span>
+                <h2 class="section-title">Resultados que Entregamos</h2>
+                <p class="section-description">Compromisso com impacto técnico e financeiro, sem criar dependência operacional.</p>
+            </div>
+            <div class="results-grid">
+                <div class="result-card fade-in">
+                    <div class="result-value">20-60%</div>
+                    <div class="result-label">Redução de custos cloud</div>
+                </div>
+                <div class="result-card fade-in">
+                    <div class="result-value">3x</div>
+                    <div class="result-label">Velocidade de entrega</div>
+                </div>
+                <div class="result-card fade-in">
+                    <div class="result-value">-70%</div>
+                    <div class="result-label">Redução de incidentes</div>
+                </div>
+                <div class="result-card fade-in">
+                    <div class="result-value">100%</div>
+                    <div class="result-label">Infraestrutura como Código</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para transformar sua infraestrutura?</h2>
+                <p>Vamos conversar sobre como podemos acelerar seu negócio com tecnologia eficiente, segura e escalável.</p>
+                <div class="hero-buttons" style="justify-content: center;">
+                    <a href="mailto:contato@octopus.tech" class="btn-primary">contato@octopus.tech</a>
+                    <a href="#servicos" class="btn-secondary">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-main" style="font-size: 28px;">OCTOPUS</div>
+                        <div class="logo-sub">SRE & DevOps</div>
+                    </div>
+                    <p class="footer-description">Consultoria especializada em Cloud, DevOps, SRE e Engenharia de Plataforma. Modernizando infraestrutura, acelerando negócios.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicos">Cloud & Infraestrutura</a></li>
+                        <li><a href="#servicos">DevOps & CI/CD</a></li>
+                        <li><a href="#servicos">Kubernetes</a></li>
+                        <li><a href="#servicos">Observabilidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="#diferencial">Sobre Nós</a></li>
+                        <li><a href="#resultados">Resultados</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:contato@octopus.tech">contato@octopus.tech</a></li>
+                        <li>Atendimento Remoto</li>
+                        <li>Brasil & Internacional</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Octopus - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

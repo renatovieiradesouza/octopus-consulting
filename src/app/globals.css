@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper-50: 248 250 252; /* slate-50 */
+  --paper-100: 241 245 249; /* slate-100 */
+  --paper-200: 226 232 240; /* slate-200 */
+
+  --ink-950: 2 6 23; /* slate-950 */
+  --ink-900: 15 23 42; /* slate-900 */
+  --ink-700: 51 65 85; /* slate-700 */
+
+  /* Azul bem suave (evita cores “gritantes”) */
+  --accent-50: 239 246 255; /* blue-50 */
+  --accent-600: 37 99 235; /* blue-600 */
+  --accent-700: 29 78 216; /* blue-700 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(var(--paper-50));
+  color: rgb(var(--ink-900));
+}
+
+/* Reveal (IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
