@@ -334,16 +334,16 @@ Operação gerenciada (Managed DevOps)
 
 
 APRESENTAÇÃO INSTITUCIONAL
-RPE – Engenharia & Performance em Tecnologia
+OCTOPUS – Engenharia & Performance em Tecnologia
 Slide 1 — Capa
 
-RPE – Engenharia & Performance em Tecnologia
+OCTOPUS – Engenharia & Performance em Tecnologia
 Modernizando infraestrutura. Acelerando negócios.
 Fundada em 2025
 
 Slide 2 — Quem Somos
 
-A RPE nasceu em 2025 com o objetivo de transformar a forma como empresas constroem, operam e escalam tecnologia.
+A OCTOPUS nasceu em 2025 com o objetivo de transformar a forma como empresas constroem, operam e escalam tecnologia.
 
 Somos uma consultoria especializada em:
 
@@ -377,7 +377,7 @@ Observabilidade avançada
 
 Otimização de custos cloud
 
-A RPE surgiu da necessidade do mercado por:
+A OCTOPUS surgiu da necessidade do mercado por:
 
 Infraestruturas mais eficientes
 
@@ -492,7 +492,7 @@ Nos adaptamos à maturidade tecnológica de cada cliente.
 
 Slide 8 — Impacto no Negócio
 
-Com a RPE, empresas alcançam:
+Com a OCTOPUS, empresas alcançam:
 
 Redução de 20% a 60% em custos cloud
 
@@ -516,17 +516,17 @@ Construir ambientes escaláveis, seguros e financeiramente eficientes.
 
 Slide 10 — Contato
 
-RPE – Engenharia & Performance em Tecnologia
+OCTOPUS – Engenharia & Performance em Tecnologia
 Fundada em 2025
 
-📩 contato@rpe.tech
+📩 contato@octopus.tech
 
 🌎 Atendimento remoto – Brasil e Exterior
 
-Slide — Por que escolher a RPE?
+Slide — Por que escolher a OCTOPUS?
 🚀 Engenharia com Visão de Negócio
 
-A RPE não entrega apenas infraestrutura.
+A OCTOPUS não entrega apenas infraestrutura.
 Entregamos eficiência contínua, governança e crescimento sustentável.
 
 🧱 Foco em Manutenabilidade

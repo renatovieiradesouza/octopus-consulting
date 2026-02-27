@@ -23,7 +23,6 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
 export const metadata: Metadata = {
   title: `${site.brand.name} — Consultoria em Engenharia de Software, Cloud e DevOps`,
   description: site.hero.description,
-  icons: [{ rel: "icon", url: "/logo.png" }],
   openGraph: {
     title: `${site.brand.name} — Engenharia & Performance em Tecnologia`,
     description: site.hero.description,

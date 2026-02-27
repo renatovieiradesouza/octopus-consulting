@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { site } from "@/content/site";
 
 export function Header() {
@@ -7,14 +5,6 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-paper-200 bg-white/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-center gap-3">
-          <Image
-            src="/logo.png"
-            alt={`${site.brand.name} logo`}
-            width={44}
-            height={44}
-            className="h-11 w-11 rounded-xl bg-paper-100 object-contain p-2"
-            priority
-          />
           <div className="leading-tight">
             <div className="font-display text-2xl font-extrabold tracking-[0.18em] text-ink-900">
               {site.brand.name}

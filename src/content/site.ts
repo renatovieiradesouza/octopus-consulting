@@ -13,13 +13,13 @@ export type Metric = { value: string; label: string };
 
 export const site = {
   brand: {
-    name: "OCTOPUS",
+    name: "OCTOPUS Consulting",
     subtitle: "SRE & DevOps",
     foundedYear: 2025,
-    legalName: "RPE – Engenharia & Performance em Tecnologia",
+    legalName: "OCTOPUS – Engenharia & Performance em Tecnologia",
   },
   contact: {
-    email: "contato@rpe.tech",
+    email: "contato@octopus.tech",
     serviceArea: "Atendimento remoto — Brasil e Exterior",
   },
   nav: [
@@ -158,7 +158,7 @@ export const site = {
     title: "Pronto para transformar sua infraestrutura?",
     description:
       "Vamos conversar sobre como acelerar seu negócio com tecnologia eficiente, segura e escalável.",
-    primary: { label: "Enviar e‑mail", href: "mailto:contato@rpe.tech" },
+    primary: { label: "Enviar e‑mail", href: "mailto:contato@octopus.tech" },
     secondary: { label: "Saiba mais", href: "#servicos" },
   },
   footer: {
@@ -185,7 +185,7 @@ export const site = {
       {
         title: "Contato",
         links: [
-          { label: "contato@rpe.tech", href: "mailto:contato@rpe.tech" },
+          { label: "contato@octopus.tech", href: "mailto:contato@octopus.tech" },
           { label: "Atendimento remoto", href: "#contato" },
           { label: "Brasil & Internacional", href: "#contato" },
         ],
